@@ -1,0 +1,23 @@
+{
+  "name": "lid-sleep-daemon",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "main.js"
+  ],
+  "bin": {
+    "lid-sleep-daemon": "main.js"
+  },
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "rxjs": "^6.6.3"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
