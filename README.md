@@ -20,16 +20,16 @@ The following option can be set as environment variables.
 **You will likely want to set at least the CMD variables to match your system configuration!**
 Note: Killing the lock process in the suspend command makes sense if your system is already configured to run another lock process on suspend.
 
-| Option                               | Description                                                      | Default                                 |
-| ------------------------------------ | ---------------------------------------------------------------- | --------------------------------------- |
-| LOCK_CMD                             | Command to run when locking                                      | `i3lock-fancy-rapid 16 2`               |
-| SUSPEND_CMD                          | Command to run when suspending                                   | `pkill i3lock && systemctl suspend`     |
-| LID_STATE_PATH                       | Where to read the lid state from                                 | `/proc/acpi/button/lid/LID0/state`      |
-| LID_POLL_INTERVAL_SEC                | How often to refresh the lid state                               | `5`                                     |
-| SUSPEND_DELAY_SEC                    | How long to wait                                                 | `15 * 60`                               |
-| SUSPEND_DELAY_MIN_BATTERY_PERCENTAGE | How much battery is needed to keep the system alive while closed | `10`                                    |
-| BATTERY_CAPACITY_PATH                | Where to read the battery capacity from                          | `/sys/class/power_supply/BAT0/capacity` |
-| BATTERY_POLL_INTERVAL_SEC            | How often to refresh the battery capacity                        | `60`                                    |
+| Option                               | Description                                                      | Default                                          |
+| ------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------ |
+| LOCK_CMD                             | Command to run when locking                                      | `i3lock-fancy-rapid 16 2 && xset dpms force off` |
+| SUSPEND_CMD                          | Command to run when suspending                                   | `pkill i3lock && systemctl suspend`              |
+| LID_STATE_PATH                       | Where to read the lid state from                                 | `/proc/acpi/button/lid/LID0/state`               |
+| LID_POLL_INTERVAL_SEC                | How often to refresh the lid state                               | `5`                                              |
+| SUSPEND_DELAY_SEC                    | How long to wait                                                 | `15 * 60`                                        |
+| SUSPEND_DELAY_MIN_BATTERY_PERCENTAGE | How much battery is needed to keep the system alive while closed | `10`                                             |
+| BATTERY_CAPACITY_PATH                | Where to read the battery capacity from                          | `/sys/class/power_supply/BAT0/capacity`          |
+| BATTERY_POLL_INTERVAL_SEC            | How often to refresh the battery capacity                        | `60`                                             |
 
 ## Not yet implemented
 

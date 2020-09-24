@@ -6,7 +6,6 @@ const {
   map,
   mapTo,
   shareReplay,
-  switchMap,
   tap,
   withLatestFrom,
 } = require("rxjs/operators");
@@ -41,7 +40,10 @@ const blockLidHandling = () => {
     );
   });
 };
-const lock = (cmd = process.env.LOCK_CMD ?? "i3lock-fancy-rapid 16 2") => {
+const lock = (
+  cmd = process.env.LOCK_CMD ??
+    "i3lock-fancy-rapid 16 2 && xset dpms force off",
+) => {
   exec(cmd);
 };
 const suspend = (
