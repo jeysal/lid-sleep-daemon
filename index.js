@@ -41,13 +41,12 @@ const blockLidHandling = () => {
   });
 };
 const lock = (
-  cmd = process.env.LOCK_CMD ??
-    "i3lock-fancy-rapid 16 2 && xset dpms force off",
+  cmd = process.env.LOCK_CMD ?? "loginctl lock-session && xset dpms force off",
 ) => {
   exec(cmd);
 };
 const suspend = (
-  cmd = process.env.SUSPEND_CMD ?? "pkill i3lock && systemctl suspend",
+  cmd = process.env.SUSPEND_CMD ?? "systemctl suspend",
 ) => {
   exec(cmd);
 };
