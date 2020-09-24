@@ -97,6 +97,19 @@ it("locks when the lid is closed a second time", async () => {
 
   expect(lock).toHaveBeenCalledTimes(1);
 });
+it("does not lock again as battery drains", () => {
+  const lock = jest.fn();
+  subscriptions.push(lock$.subscribe(lock));
+
+  lidOpen = false;
+  jest.advanceTimersByTime(1 * 1000);
+  lock.mockClear();
+
+  batteryCapacity = 42;
+  jest.advanceTimersByTime(1 * 1000);
+
+  expect(lock).not.toHaveBeenCalled();
+});
 
 it("does not suspend immediately when the lid is closed", async () => {
   const suspend = jest.fn();

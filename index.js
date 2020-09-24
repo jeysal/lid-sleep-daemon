@@ -1,13 +1,14 @@
 const { merge, timer, EMPTY, combineLatest } = require("rxjs");
 const {
   debounce,
-  mapTo,
   distinctUntilChanged,
   filter,
   map,
+  mapTo,
   shareReplay,
   switchMap,
   tap,
+  withLatestFrom,
 } = require("rxjs/operators");
 
 const process = require("process");
@@ -102,11 +103,12 @@ const configure = (
     mapTo(undefined),
     tap(`Lid closed and battery low, suspending`),
   );
-  const lock$ = batteryCapacityPercentage$.pipe(
-    switchMap((capacity) =>
-      capacity < SUSPEND_DELAY_MIN_BATTERY_PERCENTAGE ? EMPTY : lidOpenState$,
+  const lock$ = lidOpenState$.pipe(
+    withLatestFrom(batteryCapacityPercentage$),
+    filter(
+      ([open, capacity]) =>
+        !open && capacity >= SUSPEND_DELAY_MIN_BATTERY_PERCENTAGE,
     ),
-    filter((open) => !open),
     mapTo(undefined),
     tap(() => console.log(`Lid closed, locking`)),
   );
