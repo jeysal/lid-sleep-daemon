@@ -30,7 +30,3 @@ Note: Killing the lock process in the suspend command makes sense if your system
 | SUSPEND_DELAY_MIN_BATTERY_PERCENTAGE | How much battery is needed to keep the system alive while closed | `10`                                           |
 | BATTERY_CAPACITY_PATH                | Where to read the battery capacity from                          | `/sys/class/power_supply/BAT0/capacity`        |
 | BATTERY_POLL_INTERVAL_SEC            | How often to refresh the battery capacity                        | `60`                                           |
-
-## Not yet implemented
-
-- Turning the screen off while the lid is closed to save battery
