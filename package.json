@@ -7,9 +7,7 @@
     "index.js",
     "main.js"
   ],
-  "bin": {
-    "lid-sleep-daemon": "main.js"
-  },
+  "bin": "main.js",
   "scripts": {
     "start": "node main.js",
     "test": "jest"
