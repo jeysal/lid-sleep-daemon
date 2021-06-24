@@ -53,7 +53,7 @@ const suspend = (
 
 const configure = (
   {
-    LID_STATE_PATH = "/proc/acpi/button/lid/LID0/state",
+    LID_STATE_PATH = "/proc/acpi/button/lid/LID/state",
     LID_POLL_INTERVAL_SEC = 5,
 
     SUSPEND_DELAY_SEC = 15 * 60,
