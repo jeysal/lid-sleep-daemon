@@ -38,6 +38,7 @@ const blockLidHandling = () => {
     console.log(
       "Parent received SIGTERM, forwarded SIGTERM to inhibitor process",
     );
+    process.exit(128 + 15);
   });
 };
 const lock = (
@@ -45,9 +46,7 @@ const lock = (
 ) => {
   exec(cmd);
 };
-const suspend = (
-  cmd = process.env.SUSPEND_CMD ?? "systemctl suspend",
-) => {
+const suspend = (cmd = process.env.SUSPEND_CMD ?? "systemctl suspend") => {
   exec(cmd);
 };
 
